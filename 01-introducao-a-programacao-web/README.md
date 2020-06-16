@@ -25,14 +25,14 @@ Primeiro módulo do Bootcamp LaunchBase. Nele aprendemos sobre a linguagem JavaS
 
 Além disso, alguns exercícios foram propostos para fixação do conteúdo:
 
-- Desafio 1-1: [:link:](https://github.com/Rocketseat/bootcamp-launchbase-desafios-01/edit/master/desafios/01-1-primeiros-passos-com-js.md)
-Minha resolução: [:heavy_check_mark:](https://github.com/emanuelmassafera/launchbase/blob/master/01-introducao-a-programacao-web/desafio-1-1.js)
+- **Desafio 1-1: Primeiros passos com JavaScript** [:link:](https://github.com/Rocketseat/bootcamp-launchbase-desafios-01/edit/master/desafios/01-1-primeiros-passos-com-js.md)
+- **Minha resolução:** [:heavy_check_mark:](https://github.com/emanuelmassafera/launchbase/blob/master/01-introducao-a-programacao-web/desafio-1-1.js)
 
-- Desafio 1-2: [:link:](https://github.com/Rocketseat/bootcamp-launchbase-desafios-01/blob/master/desafios/01-2-lidando-com-objetos-e-vetores.md)
-Minha resolução: [:heavy_check_mark:](https://github.com/emanuelmassafera/launchbase/blob/master/01-introducao-a-programacao-web/desafio-1-2.js)
+- **Desafio 1-2: Lidando com objetos e vetores** [:link:](https://github.com/Rocketseat/bootcamp-launchbase-desafios-01/blob/master/desafios/01-2-lidando-com-objetos-e-vetores.md)
+- **Minha resolução:** [:heavy_check_mark:](https://github.com/emanuelmassafera/launchbase/blob/master/01-introducao-a-programacao-web/desafio-1-2.js)
 
-- Desafio 1-3: [:link:](https://github.com/Rocketseat/bootcamp-launchbase-desafios-01/blob/master/desafios/01-3-funcoes-e-estruturas-de-repeticao.md)
-Minha resolução: [:heavy_check_mark:](https://github.com/emanuelmassafera/launchbase/blob/master/01-introducao-a-programacao-web/desafio-1-3.js)
+- **Desafio 1-3: Funções e estruturas de repetição** [:link:](https://github.com/Rocketseat/bootcamp-launchbase-desafios-01/blob/master/desafios/01-3-funcoes-e-estruturas-de-repeticao.md)
+- **Minha resolução:** [:heavy_check_mark:](https://github.com/emanuelmassafera/launchbase/blob/master/01-introducao-a-programacao-web/desafio-1-3.js)
 
-- Desafio 1-4: [:link:](https://github.com/Rocketseat/bootcamp-launchbase-desafios-01/blob/master/desafios/01-4-aplicacao-operacoes-bancarias.md)
-Minha resolução: [:heavy_check_mark:](https://github.com/emanuelmassafera/launchbase/blob/master/01-introducao-a-programacao-web/desafio-1-4.js)
+- **Desafio 1-4: Aplicação: Operações bancárias** [:link:](https://github.com/Rocketseat/bootcamp-launchbase-desafios-01/blob/master/desafios/01-4-aplicacao-operacoes-bancarias.md)
+- **Minha resolução:** [:heavy_check_mark:](https://github.com/emanuelmassafera/launchbase/blob/master/01-introducao-a-programacao-web/desafio-1-4.js)
