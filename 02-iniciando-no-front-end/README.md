@@ -66,5 +66,5 @@ Além dos módulos, três desafios foram propostos:
 - **Minha resolução:** [:heavy_check_mark:](https://github.com/emanuelmassafera/launchbase/blob/master/02-iniciando-no-front-end/desafio-2-1.html) [:heavy_check_mark:](https://github.com/emanuelmassafera/launchbase/blob/master/02-iniciando-no-front-end/desafio-2-2.css)
 
 - **Desafio 2-3: Página de cursos e iframe** [:link:](https://github.com/Rocketseat/bootcamp-launchbase-desafios-02/blob/master/desafios/02-3-pagina-cursos-e-iframe.md)
-- **Minha resolução:** [:heavy_check_mark:]()
+- **Minha resolução:** [:heavy_check_mark:](https://github.com/emanuelmassafera/launchbase/blob/master/02-iniciando-no-front-end/desafio-2-1.html) [:heavy_check_mark:](https://github.com/emanuelmassafera/launchbase/blob/master/02-iniciando-no-front-end/desafio-2-2.css) [:heavy_check_mark:](https://github.com/emanuelmassafera/launchbase/blob/master/02-iniciando-no-front-end/desafio-2-3.html) [:heavy_check_mark:](https://github.com/emanuelmassafera/launchbase/blob/master/02-iniciando-no-front-end/desafio-2-3.js)
 
