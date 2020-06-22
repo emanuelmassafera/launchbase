@@ -94,6 +94,8 @@ header {
 
 .card {
     background-color: var(--color-rocket);
+    display: grid;
+    cursor: pointer;
 }
 
 .card_image-container img{
@@ -108,6 +110,7 @@ header {
 .card_info {
     display: grid;
     grid-template-columns: 1fr 1fr;
+    align-items: center;
 }
 
 .card_price {
@@ -158,4 +161,47 @@ iframe {
     height: 90%;
     position: absolute;
     top: 5%;
+}
+
+/*   FEATURED    */
+.featured-card.card{
+    border: solid 2px;
+    border-color: #f7d05f;
+}
+
+.featured-wrapper.card_image-container {
+    position: relative;
+}
+
+.featured {
+    position: absolute;
+    padding: 2px 8px;
+    border-radius: 20px;
+    background-color: #f7d05f;
+    color: #111111;
+    left: 5px;
+    top: -10px;
+}
+
+/*   VIDEO PAGE   */
+
+.video {
+    margin: 0 auto 20px auto;
+    max-width: 800px;
+}
+
+.video-title {
+    margin: 0 auto;
+    max-width: 800px;
+}
+.card_video-container {
+    position: relative;
+    padding-top: 65%;
+}
+
+.card_video-container iframe {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
 }

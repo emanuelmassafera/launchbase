@@ -7,17 +7,16 @@
 {% block content %}
 
     <div id="wrapper">
-        <img src="https://avatars1.githubusercontent.com/u/65625500?s=400&u=eb9e300de61698fc8531949a451ce2f0e9da46f9&v=4" alt="Emanuel">
-        <h1>Emanuel Massafera</h1>
-        <h2>Futuro Full Stack Developer</h2>
-        <p>Estudando programação web pela
-            <a href="https://rocketseat.com.br" target="_blank">Rocketseat</a>
-        </p>
+        <img src="{{ about.avatar_url }}" alt="Imagem de {{about.name}}">
+        <h1>{{about.name}}</h1>
+        <h2>{{about.role}}</h2>
+        <p>{{about.description}}</p>
     </div>
 
     <div id="links-footer" class="links">
-        <a href="https://www.github.com/emanuelmassafera/" tagert="_blank">Github</a>
-        <a href="https://www.linkedin.com/in/emanuelmassafera/" tagert="_blank">Linkedin</a>
+        {% for link in about.links %}
+            <a href="{{link.url}}" tagert="_blank">{{link.name}}</a>
+        {% endfor %}
     </div>
 
 {% endblock content %}

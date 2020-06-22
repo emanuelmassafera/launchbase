@@ -1,0 +1,34 @@
+{% extends "layout.njk" %}
+
+{% block head %}
+    <title>{{item.title}}</title>
+{% endblock head %}
+
+{% block content %}
+    <div id="wrapper">
+        <h1>{{item.title}}</h1>
+    </div>
+
+    <section class="cards d">
+        <div class="card d" id="{{item.id}}">
+            <div class="image">
+                <img src="{{item.img}}" alt="Curso {{item.title}}">
+            </div>
+            <div class="title">
+                <p class="title">{{item.title}}</p>
+            </div>
+            <div class="info">
+                <p class="modules">{{item.modules}}</p>
+                <p class="price">{{item.price}}</p>
+            </div>
+        </div>
+
+        <div class="modalD">
+            <div class="modal-content">
+                <iframe class="iframe" src="https://www.rocketseat.com.br/{{item.id}}" frameborder="0"></iframe>
+            </div>
+        </div>
+    </section>
+
+    <script src="desafio.js"></script>
+{% endblock content %}
