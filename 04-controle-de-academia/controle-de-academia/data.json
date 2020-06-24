@@ -1,0 +1,22 @@
+{
+  "instructors": [
+    {
+      "id": 1,
+      "name": "AAAA",
+      "avatar_url": "https://www.google.com",
+      "birth": 1591228800000,
+      "gender": "M",
+      "services": "Academia",
+      "created_at": 1593031031473
+    },
+    {
+      "id": 2,
+      "name": "Emanuel Massafera Magalhães",
+      "avatar_url": "https://www.google.com",
+      "birth": 1591660800000,
+      "gender": "M",
+      "services": "Academia",
+      "created_at": 1593031129396
+    }
+  ]
+}
