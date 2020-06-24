@@ -2,6 +2,7 @@
 
 :root {
     --primary-color: #7159c1;
+    --secondary-color: #F7DF1E;
 }
 
 * {
@@ -59,4 +60,79 @@ header {
 .links a:hover::after {
     width: 100%;
     transition: width 300ms ease-in-out;
+}
+
+.card {
+    background-color: white;
+    width: 800px;
+    min-height: 400px;
+    margin: 45px auto;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    /* Sombra */
+    box-shadow: 2px 4px 6px -2px rgba(0,0,0,0.4);
+    /* Animation */
+    opacity: 0;
+    animation-name: up;
+    animation-duration: 300ms;
+    animation-timing-function: ease-out;
+    animation-fill-mode: forwards;
+    animation-delay: 0.5s;
+    animation-play-state: running;
+}
+
+@keyframes up {
+    from{
+        transform: translateY(15px);
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+.details {
+    padding: 32px;
+}
+
+.details .items {
+    border-bottom: 1px solid rgba(0,0,0,0.1);
+    padding: 16px 0;
+}
+
+.details .items:last-child {
+    border: none;
+}
+
+.details h3,
+.details .items div:nth-child(1) {
+    font-size: 14px;
+    line-height: 24px;
+    color: #777;
+    letter-spacing: 0.7px;
+    font-weight: normal;
+}
+
+.details .items div:nth-child(2) {
+    color: #555;
+    font-weight: bold;
+    font-size: 18px;
+}
+
+.details h3 {
+    text-transform: uppercase;
+    font-weight: bold;
+    color: var(--primary-color);
+}
+
+.details .items div:nth-child(2) span {
+    padding: 8px 16px;
+    background-color: var(--secondary-color);
+    border-radius: 16px;
+    color: #777;
+    margin-right: 4px;
+    margin-top: 8px;
+    display: inline-block;
+    font-weight: bold;
+    text-transform: uppercase;
+    font-size: 12px;
 }
