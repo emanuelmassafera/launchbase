@@ -2,21 +2,30 @@
   "instructors": [
     {
       "id": 1,
-      "name": "AAAA",
-      "avatar_url": "https://www.google.com",
-      "birth": 1591228800000,
+      "name": "Emanuel Massafera Magalhães",
+      "avatar_url": "https://source.unsplash.com/collection/8524003/500x500",
+      "birth": 925430400000,
       "gender": "M",
       "services": "Academia",
-      "created_at": 1593031031473
+      "created_at": 1593442981727
     },
     {
       "id": 2,
-      "name": "Emanuel Massafera Magalhães",
-      "avatar_url": "https://www.google.com",
-      "birth": 1591660800000,
+      "name": "Murillo",
+      "avatar_url": "https://source.unsplash.com/collection/8524003/500x500",
+      "birth": 1072137600000,
       "gender": "M",
-      "services": "Academia",
-      "created_at": 1593031129396
+      "services": "Crossfit",
+      "created_at": 1593443014543
+    },  
+    {
+      "id": 3,
+      "name": "Ana",
+      "avatar_url": "https://source.unsplash.com/collection/8524003/500x500",
+      "birth": 270518400000,
+      "gender": "F",
+      "services": "Natação, Corrida, Ciclismo",
+      "created_at": 1593443257712
     }
   ]
 }
