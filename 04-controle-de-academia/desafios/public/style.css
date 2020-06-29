@@ -4,6 +4,7 @@
     --background-color: #241D31;
     --decorative-color: rgb(255, 72, 0);
     --header-color: white;
+    --secondary-color: #A35364;
 }
 
 * {
@@ -148,4 +149,39 @@ header {
 
 .details .items:last-child div:nth-child(2) {
     font-size: 16px;
+}
+
+input {
+    width: 100%;
+    outline: none;
+    color: #555;
+    font-weight: bold;
+    font-size: 20px;
+}
+
+input[type="radio"] {
+    width: initial;
+    margin-right: 4px;
+}
+
+input::placeholder {
+    font-size: 18px;
+    font-weight: normal;
+}
+
+button[type="submit"] {
+    padding: 8px 32px;
+    border-radius: 4px;
+    margin-top: 32px;
+    width: 100%;
+    font-size: 16px;
+    color: white;
+    background-color: var(--background-color);
+}
+
+select {
+    outline: none;
+    color: #555;
+    font-weight: bold;
+    font-size: 20px;
 }

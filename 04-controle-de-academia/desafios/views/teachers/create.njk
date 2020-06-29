@@ -1,0 +1,61 @@
+{% extends "layout.njk" %}
+
+{% block head %}
+    <title>Create</title>
+{% endblock head %}
+
+{% block content %}
+    <form class="card" method="POST" action="/teachers">
+        <section class="image" style="background: url(https://source.unsplash.com/collection/1603248/500x500) no-repeat center center / cover"></section>
+
+        <section class="details">
+            <h3>Novo professor</h3>
+
+            <div class="all-items">
+                <div class="items">
+                    <div>Avatar URL</div>
+                    <input type="url" name="avatar_url" placeholder="http://">
+                </div>
+
+                <div class="items">
+                    <div>Nome completo</div>
+                    <input type="text" name="name" placeholder="Nome do Professor">
+                </div>
+
+                <div class="items">
+                    <div>Data de nascimento</div>
+                    <input type="date" name="birth">
+                </div>
+
+                <div class="items">
+                    <div>Grau de escolaridade</div>
+                    <select name="schooling">
+                        <option value="option1" selected="selected">Ensino Médio Completo</option>
+                        <option value="option2">Ensino Superior Completo</option>
+                        <option value="option3">Mestrado</option>
+                        <option value="option4">Doutorado</option>
+                    </select>
+                </div>
+
+                <div class="items">
+                    <div>Tipo de aula</div>
+                    <div>
+                        <span><input type="radio" name="lesson" value="P" checked="checked">Presencial</span>
+                        <span><input type="radio" name="lesson" value="D">À distância</span>
+                    </div>
+
+                </div>
+
+                <div class="items">
+                    <div>Área de atuação</div>
+                    <div>
+                        <input type="text" name="services" placeholder="Separe os serviços prestados por vírgula">
+                    </div>
+                </div>
+
+                <button type="submit">Salvar</button>
+            </div>
+
+        </section>
+    </form>
+{% endblock content %}

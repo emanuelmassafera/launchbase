@@ -1,0 +1,34 @@
+{
+  "teachers": [
+    {
+      "avatar_url": "https://www.google.com",
+      "name": "Emanuel Massafera Magalhães",
+      "birth": 1592438400000,
+      "schooling": "option1",
+      "lesson": "P",
+      "services": "Matemática, Cálculo",
+      "id": 1,
+      "created_at": 1593439224791
+    },
+    {
+      "avatar_url": "https://www.google.com",
+      "name": "Emanuel Massafera Magalhães",
+      "birth": 1593648000000,
+      "schooling": "option4",
+      "lesson": "D",
+      "services": "Academia",
+      "id": 2,
+      "created_at": 1593439244901
+    },
+    {
+      "id": 3,
+      "avatar_url": "https://www.google.com",
+      "name": "Teste",
+      "birth": 1591833600000,
+      "schooling": "option3",
+      "lesson": "P",
+      "services": "Matemática",
+      "created_at": 1593439321192
+    }
+  ]
+}
