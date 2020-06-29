@@ -2,10 +2,10 @@
 
 {% block content %}
     <form class="card" method="POST" action="/teachers">
-        <section class="image" style="background: url(https://source.unsplash.com/collection/1603248/500x500) no-repeat center center / cover"></section>
+        <section class="image" style="background: url({{teacher.avatar_url}}) no-repeat center center / cover"></section>
 
         <section class="details">
-            <h3>Novo professor</h3>
+            <h3>Editar professor</h3>
 
             {% include "teachers/fields.njk" %}
 

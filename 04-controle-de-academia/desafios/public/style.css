@@ -169,7 +169,8 @@ input::placeholder {
     font-weight: normal;
 }
 
-button[type="submit"] {
+button[type="submit"],
+a.button {
     padding: 8px 32px;
     border-radius: 4px;
     margin-top: 32px;
@@ -184,4 +185,11 @@ select {
     color: #555;
     font-weight: bold;
     font-size: 20px;
+}
+
+a.button {
+    text-decoration: none;
+    text-align: center;
+    display: block;
+    box-sizing: border-box;
 }
