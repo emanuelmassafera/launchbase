@@ -81,3 +81,58 @@ exports.edit = function(req, res) {
 
     return res.render("teachers/edit", {teacher});
 }
+
+// PUT - UPDATE
+exports.update = function(req, res) {
+    let { id } = req.body;
+    id = Number(id);
+    let index = 0;
+
+    const foundTeacher = data.teachers.find(function(teacher, foundIndex) {
+        if (id === teacher.id) {
+            index = foundIndex;
+            return true;
+        }
+    });
+
+    if (!foundTeacher) {
+        return res.send("Teacher not found!");
+    }
+
+    const teacher = {
+        ...foundTeacher,
+        ...req.body,
+        id: id,
+        birth: Date.parse(req.body.birth)
+    };
+
+    data.teachers[index] = teacher;
+
+    fs.writeFile("data.json", JSON.stringify(data, null, 2), function(err) {
+        if (err) {
+            return res.send("Write file error!");
+        }
+
+        return res.redirect(`/teachers/${id}`);
+    });
+}
+
+// DELETE
+exports.delete = function(req, res) {
+    let { id } = req.body;
+    id = Number(id);
+
+    const filteredTeachers = data.teachers.filter(function(teacher) {
+        return teacher.id != id;
+    });
+
+    data.teachers = filteredTeachers;
+
+    fs.writeFile("data.json", JSON.stringify(data, null, 2 ), function(err) {
+        if (err) {
+            return res.send("Write file error!");
+        }
+
+        return res.redirect("/teachers");
+    });
+}

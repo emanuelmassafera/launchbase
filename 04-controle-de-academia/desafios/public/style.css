@@ -178,6 +178,7 @@ a.button {
     font-size: 16px;
     color: white;
     background-color: var(--background-color);
+    cursor: pointer;
 }
 
 select {
@@ -192,4 +193,17 @@ a.button {
     text-align: center;
     display: block;
     box-sizing: border-box;
+    cursor: pointer;
 }
+
+.buttons {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+}
+
+#btn-delete{
+    background-color: rgba(255, 0, 0, 0.719);
+}
+
+
