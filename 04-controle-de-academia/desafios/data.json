@@ -19,15 +19,6 @@
       "hours": "5"
     },
     {
-      "id": 3,
-      "avatar_url": "https://images.unsplash.com/photo-1517256673644-36ad11246d21?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=60",
-      "name": "Lívia",
-      "birth": 1197158400000,
-      "email": "livia09@gmail.com",
-      "year": "6F",
-      "hours": "14"
-    },
-    {
       "id": 4,
       "avatar_url": "https://images.unsplash.com/photo-1547226706-af7e2c20bcea?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1189&q=80",
       "name": "Marcos",
@@ -35,6 +26,15 @@
       "email": "marcos@yahoo.com",
       "year": "5F",
       "hours": "5"
+    },
+    {
+      "id": 5,
+      "avatar_url": "https://images.unsplash.com/photo-1580894732930-0babd100d356?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=60",
+      "name": "Maria Luiza",
+      "birth": 952214400000,
+      "email": "maria@live.com",
+      "year": "3M",
+      "hours": "20"
     }
   ],
   "teachers": [
@@ -59,16 +59,6 @@
       "created_at": 1593523017890
     },
     {
-      "id": 3,
-      "avatar_url": "https://images.unsplash.com/photo-1525571453712-090270b8354f?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=60",
-      "name": "Joana",
-      "birth": 879120000000,
-      "schooling": "medio",
-      "lesson": "À distância",
-      "services": "Alemão",
-      "created_at": 1593523073069
-    },
-    {
       "id": 4,
       "avatar_url": "https://images.unsplash.com/photo-1548449112-96a38a643324?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=60",
       "name": "Antônio",
@@ -77,6 +67,16 @@
       "lesson": "À distância",
       "services": "Filosofia, Sociologia, História",
       "created_at": 1593523145909
+    },
+    {
+      "id": 5,
+      "avatar_url": "https://images.unsplash.com/photo-1580894732930-0babd100d356?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=60",
+      "name": "Marisa",
+      "birth": 315792000000,
+      "schooling": "doutorado",
+      "lesson": "Presencial",
+      "services": "Química, Biologia",
+      "created_at": 1593565382747
     }
   ]
 }
