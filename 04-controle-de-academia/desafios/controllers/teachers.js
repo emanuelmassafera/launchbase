@@ -1,6 +1,6 @@
 const fs = require("fs");
-const data = require("./data.json");
-const {graduation, age, date} = require("./utils");
+const data = require("../data.json");
+const {graduation, age, date} = require("../utils");
 const Intl = require("intl");
 
 // INDEX 
@@ -8,7 +8,12 @@ exports.index = function(req, res) {
     return res.render("teachers/index", { teachers: data.teachers });
 }
 
-// CREATE
+// CREATE 
+exports.create = function(req, res){
+    return res.render("teachers/create");
+}
+
+// POST
 exports.post = function (req, res) {
     const keys = Object.keys(req.body);
 
@@ -81,7 +86,7 @@ exports.edit = function(req, res) {
 
     const teacher = {
         ...foundTeacher,
-        birth: date(foundTeacher.birth)
+        birth: date(foundTeacher.birth).iso
     };
 
     return res.render("teachers/edit", {teacher});

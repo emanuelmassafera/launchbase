@@ -1,6 +1,6 @@
 const fs = require("fs");
-const data = require("./data.json");
-const { age, date } = require("./utils");
+const data = require("../data.json");
+const { age, date } = require("../utils");
 const Intl = require("intl");
 
 // INDEX
@@ -9,6 +9,11 @@ exports.index = function(req, res) {
 }
 
 // CREATE
+exports.create = function(req, res) {
+    return res.render("instructors/create");
+}
+
+// POST
 exports.post = function (req, res) {
     const keys = Object.keys(req.body);
 
@@ -29,7 +34,7 @@ exports.post = function (req, res) {
     fs.writeFile("data.json", JSON.stringify(data, null, 2), function(err) {
         if (err) return res.send("Write file error!");
 
-        return res.redirect("/instructors");
+        return res.redirect(`/instructors/${id}`);
     });
 }
 
@@ -69,7 +74,7 @@ exports.edit = function(req, res) {
     
     const instructor = {
         ...foundInstructor,
-        birth: date(foundInstructor.birth)
+        birth: date(foundInstructor.birth).iso
     }
 
     return res.render("instructors/edit", {instructor});

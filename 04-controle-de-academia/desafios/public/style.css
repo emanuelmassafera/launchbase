@@ -142,12 +142,15 @@ header {
     font-size: 12px;
 }
 
-.details .items:last-child {
+.details .items:last-child .since{
     text-align: center;
+}
+
+.details .items:last-child .since div:nth-child(1) {
     padding: 24px 0px 0px 0px;
 }
 
-.details .items:last-child div:nth-child(2) {
+.details .items:last-child .since div:nth-child(2) {
     font-size: 16px;
 }
 
@@ -252,7 +255,8 @@ tbody tr td:first-child span {
     border: 1px solid white;
 }
 
-tbody tr td:last-child a {
+tbody tr td:last-child a,
+.table-container > a {
     background-color: var(--background-color);
     padding: 8px 16px;
     text-decoration: none;
@@ -260,6 +264,11 @@ tbody tr td:last-child a {
     color: white;
     font-size: 12px;
     border-radius: 4px;
+}
+
+.table-container > a {
+    margin-bottom: 16px;
+    display: inline-block;
 }
 
 tbody tr td .service {
