@@ -6,7 +6,7 @@
   Controle de Academia
 </h3>
 
-## :rocket: Sobre o módulo
+## :rocket: Sobre o módulo 
 
 Módulo no qual criamos um gerenciador para instrutores e membros de uma academia, com possibilidade de cadastrar, listar, editar e remover. Segue a divisão:
 
