@@ -22,11 +22,44 @@ module.exports = {
         const day = `0${date.getUTCDate()}`.slice(-2);
 
         return {
-            day, 
+            day,
             month,
             year,
             iso: `${year}-${month}-${day}`,
-            birthDay: `${day}/${month}`
+            birthDay: `${day}/${month}`,
+            format: `${day}/${month}/${year}`
         };
+    },
+
+    blood(initials) {
+        let blood = "";
+        switch (initials) {
+            case "A1":
+                blood = "A+";
+                break;
+            case "A0":
+                blood = "A-";
+                break;
+            case "B1":
+                blood = "B+";
+                break;
+            case "B0":
+                blood = "B-";
+                break;
+            case "AB1":
+                blood = "AB+";
+                break;
+            case "AB0":
+                blood = "AB-";
+                break;
+            case "O1":
+                blood = "O+";
+                break;
+            case "O0":
+                blood = "O-";
+                break;
+        }
+
+        return blood;
     }
 }
