@@ -255,3 +255,32 @@ tbody tr td .service {
     text-transform: uppercase;
     font-size: 12px;
 }
+
+.table-container .header {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    align-items: center;
+    margin-bottom: 32px;
+}
+
+.table-container .header a {
+    margin: 0;
+    width: 120px;
+}
+
+.table-container .header form {
+    display: grid;
+    grid-template-columns: 1fr 120px;
+    align-items: center;
+    gap: 8px;
+}
+
+.table-container .header form button {
+    margin: 0;
+}
+
+.table-container .header form input {
+    border: 1px solid #EEEEEE;
+    padding: 4px 8px;
+    box-sizing: border-box;
+}
