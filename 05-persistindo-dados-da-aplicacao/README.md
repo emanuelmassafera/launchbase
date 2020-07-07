@@ -68,7 +68,7 @@ Módulo dedicado ao aprendizado sobre persistência de dados. Usamos o banco Pos
 - **Aplicando paginação para membros;**
 - **Ajustes finais;**
 
-Como dito acima, as aulas e os desafios tiveram como base as aplicações desenvolvidas no módulo anterior. As alterações residiram na forma como os dados são tratados, que passou a ser através de um banco de dados e da linguagem SQL para as querys.
+Como dito acima, as aulas e os desafios tiveram como base as aplicações desenvolvidas no módulo anterior. As alterações residiram na forma como os dados são tratados, que passou a ser através de um banco de dados e da linguagem SQL para as querys. Além disso, foram adicionadas uma forma de filtrar resultados e uma estrutura de paginação.
 Os desafios estão listados abaixo e foram salvos na pasta "desafios" deste repositório.
 
 - **Desafio 5-1: Refatorando aplicação e configurando o BD** [:link:](https://github.com/Rocketseat/bootcamp-launchbase-desafios-05/blob/master/desafios/05-1-refatorando-aplicacao.md)
