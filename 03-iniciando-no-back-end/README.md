@@ -47,8 +47,7 @@ Módulo de introdução ao Back-end, no qual aprendemos a criar servidores, cria
 - **Ajustes finais;**
 
 Os exercídios e os desafios foram realizados com os projetos já construídos no módulo anterior, Iniciando no Front-end. Portanto, praticamente toda a interface não se alterou, apenas alguns detalhes externos foram trocados. 
-O que mais se modificou foi a forma como as coisas acontecem internamente: antes usávamos a extensão Live Server, agora nós construímos os servidores das aplicações; além disso, passamos a usar uma template engine, o Nunjucks, que auxiliou no 
-reaproveitamento de código e na criação de páginas mais dinâmicas. Os desafios estão listados abaixo e foram salvos na pasta "desafios" deste repositório.
+O que mais se modificou foi a forma como as coisas acontecem internamente: antes usávamos a extensão Live Server, agora nós construímos os servidores das aplicações; além disso, passamos a usar uma template engine, o Nunjucks, que auxiliou no reaproveitamento de código e na criação de páginas mais dinâmicas. Os desafios estão listados abaixo e foram salvos na pasta "desafios" deste repositório.
 
 - **Desafio 3-1: Primeiro servidor** [:link:](https://github.com/Rocketseat/bootcamp-launchbase-desafios-03/blob/master/desafios/03-1-primeiro-servidor.md)
 
