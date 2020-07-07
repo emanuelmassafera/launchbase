@@ -83,8 +83,8 @@ Os desafios estão listados abaixo e foram salvos na pasta "desafios" deste repo
 
 ### Feito durante as aulas
 
-<img alt="" src="https://media.giphy.com/media/U4py0MylZsbYqf1yec/giphy.gif"  width="600px"/>
+<img alt="" src="https://media.giphy.com/media/MdRobeXCHUVcDqQyZV/giphy.gif"  width="600px"/>
 
 ### Desafios
 
-<img alt="" src="https://media.giphy.com/media/hXIqwWjHMJBTJaqgPx/giphy.gif"  width="600px"/>
+<img alt="" src="https://media.giphy.com/media/lopeHz3sZ07M1vNqp8/giphy.gif"  width="600px"/>
