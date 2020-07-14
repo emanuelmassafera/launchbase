@@ -298,7 +298,7 @@ tbody tr td .service {
 .table-container .pagination {
     margin: 0;
     align-self: end;
-    justify-self: center;
+    justify-items: center;
 }
 
 .pagination a,
