@@ -10,7 +10,7 @@
 </div>
 
 <div class="item">
-    <div>Nome</div>
+    <div>Título</div>
     <div>
         <input type="text" name="name" placeholder="Digite o título do anúncio" value="{{product.name}}">
     </div>
@@ -19,9 +19,7 @@
 <div class="item">
     <div>Descrição</div>
     <div>
-        <textarea name="description">
-            {{product.description}}
-        </textarea>
+        <textarea name="description">{{product.description}}</textarea>
     </div>
 </div>
 
@@ -30,7 +28,7 @@
 <div class="item">
     <div>Valor</div>
     <div>
-        <input type="text" name="price" placeholder="Preço do produto" value="{{product.price}}">
+        <input type="text" name="price" placeholder="Preço do produto" value="{{product.price}}" onkeydown="Mask.apply(this, 'formatBRL')">
     </div>
 
     {% if product.old_price %}
@@ -45,15 +43,15 @@
     </div>
 </div>
 
-{% if product.status %}
+{% if (product.status == '1') or (product.status == 0) %}
     <div class="item">
         <div>Disponível</div>
         <div>
             <span>
-                <input type="radio" name="status" value="1" {% if product.status === "1" %} checked="checked" {% endif %}>Sim
+                <input type="radio" name="status" value="1" {% if product.status === 1 %} checked="checked" {% endif %}>Sim
             </span>
             <span>
-                <input type="radio" name="status" value="0" {% if product.status  === "0" %} checked="checked" {% endif %}>Não
+                <input type="radio" name="status" value="0" {% if product.status  === 0 %} checked="checked" {% endif %}>Não
             </span>
         </div>
     </div>
