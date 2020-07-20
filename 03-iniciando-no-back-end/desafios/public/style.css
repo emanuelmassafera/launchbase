@@ -2,17 +2,22 @@
 
 * {
     margin: 0;
-    border: 0;
     padding: 0;
+    box-sizing: border-box;
+    text-decoration: none;
+    list-style-type: none;
+    border: none;
 }
 
 body {
     background: #123455;
     font-family: 'Roboto', sans-serif;
     color: white;
+    min-height: 100vh;
 }
 
-body header {
+body header,
+footer {
    padding: 30px;
    background: #112344;
    border-bottom: 1px solid #333;
@@ -223,3 +228,7 @@ body header {
     max-height: 600px;
 }
 
+footer {
+    text-align: center;
+    margin-top: 80px;
+}
