@@ -10,4 +10,4 @@
 
 ---
 
-Cada módulo já finalizado tem o seu READ.me
+Cada módulo já finalizado tem o seu README
