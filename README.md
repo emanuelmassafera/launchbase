@@ -7,3 +7,7 @@
 </h3>
 
 <h4 align="center">🚧   Em construção 🚀 🚧</h4>
+
+---
+
+Cada módulo já finalizado tem o seu README
