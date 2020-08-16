@@ -6,11 +6,11 @@
             <title>Launchstore</title>
         {% endblock head %}
 
-        <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-        <link rel="stylesheet" href="/style.css">
+        {% include "parts/styles.njk" %}
     </head>
 
     <body>
+        {% include "parts/messages.njk" %}
         
         {% include "parts/header.njk" %}
 
