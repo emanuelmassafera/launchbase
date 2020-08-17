@@ -8,7 +8,7 @@
 
 ## :rocket: Sobre o módulo
 
-Criação do cadastro de usuários da Launchstore, onde há verificação de e-mail e CPF/CNPJ para garantir que o não há usuário cadastrado com estes dados, verificação de preenchimento de todos os dados, confirmação de senha e uso de Hash para salvar a senha no banco de dados. Segue a divisão do módulo:
+Criação do cadastro de usuários da Launchstore, onde há verificação de e-mail e CPF/CNPJ para garantir que não há usuário cadastrado com estes dados, verificação de preenchimento de todos os campos, confirmação de senha e uso de Hash para salvar a senha no banco de dados. Segue a divisão do módulo:
 
 ### Registro de Usuários 
 
