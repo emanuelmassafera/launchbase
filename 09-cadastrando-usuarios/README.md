@@ -8,7 +8,7 @@
 
 ## :rocket: Sobre o módulo
 
-Criação do cadastro de usuários da Launchstore. Segue a divisão do módulo:
+Criação do cadastro de usuários da Launchstore, onde há verificação de e-mail e CPF/CNPJ para garantir que o não há usuário cadastrado com estes dados, verificação de preenchimento de todos os dados, confirmação de senha e uso de Hash para salvar a senha no banco de dados. Segue a divisão do módulo:
 
 ### Registro de Usuários 
 
@@ -46,4 +46,4 @@ O gif abaixo mostra o resultado de como ficou o sistema de cadastro de usuários
 
 ### Feito durante as aulas
 
-<img alt="" src="https://media.giphy.com/media/lRXr40sNw5fdHnZ5C4/giphy.gif"  width="600px"/>
+<img alt="" src="./cadastrando-usuarios/public/gif/launchstore-cadastro.gif" width="600px"/>
