@@ -3,7 +3,7 @@
 </h1>
 
 <h3 align="center">
-  Listando os produtos da Launchstore
+  Listando os produtos da Launchstore 
 </h3>
 
 ## :rocket: Sobre o módulo
