@@ -64,4 +64,4 @@ O gif abaixo mostra o resultado deste módulo que adicionou novas funcionalidade
 
 ### Feito durante as aulas
 
-<img alt="" src="./cadastrando-usuarios/public/gif/launchstore-cadastro.gif" width="600px"/>
+<img alt="" src="./controle-da-sessao-de-usuario/public/gif/launchstore-controle-de-sessao.gif" width="600px"/>
