@@ -96,8 +96,8 @@ module.exports = {
 
             req.session.destroy();
 
-            promiseResults.map(results => {
-                results.rows.map(file => {
+            promiseResults.map(files => {
+                files.map(file => {
                     try {
                         unlinkSync(file.path);
                     } catch (error) {

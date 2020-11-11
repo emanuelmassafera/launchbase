@@ -3,6 +3,7 @@ const Product = require("../models/Product");
 const File = require("../models/File");
 
 const { formatPrice, date } = require("../../lib/utils");
+const { unlinkSync } = require("fs");
 
 
 module.exports = {
@@ -49,10 +50,10 @@ module.exports = {
                 status: status || 1,
             })
 
-            const filesPromises = req.files.map(file => File.create({ ...file, product_id }));
+            const filesPromises = req.files.map(file => File.create({ name: file.filename, path: file.path, product_id }));
             await Promise.all(filesPromises);
 
-            return res.redirect(`products/${productId}`);
+            return res.redirect(`products/${product_id}`);
 
         } catch (error) {
             console.error(error);
@@ -137,7 +138,7 @@ module.exports = {
             }
 
             if (req.files.length != 0) {
-                const newFilesPromises = req.files.map(file => File.create({...file, product_id: req.body.id}));
+                const newFilesPromises = req.files.map(file => File.create({name: file.filename, path: file.path, product_id: req.body.id}));
 
                 await Promise.all(newFilesPromises);
             }
@@ -157,7 +158,7 @@ module.exports = {
             if (req.body.old_price != req.body.price) {
                 const oldProduct = await Product.find(req.body.id);
 
-                req.body.old_price = oldProduct.rows[0].price;
+                req.body.old_price = oldProduct.price;
             }
 
             await Product.update(req.body.id, {
@@ -179,9 +180,19 @@ module.exports = {
     },
 
     async delete(req, res) {
+
+        const files = await Product.files(req.body.id);
+        
         await Product.delete(req.body.id);
+
+        files.map(file => {
+            try {
+                unlinkSync(file.path);
+            } catch (error) {
+                console.error(error);
+            }
+        });
 
         return res.redirect('/products/create');
     }
-    
 }
