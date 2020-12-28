@@ -3,65 +3,29 @@
 </h1>
 
 <h3 align="center">
-  Controle da sessão de usuário
+  NodeJS Avançado
 </h3>
 
 ## :rocket: Sobre o módulo
 
-Elaboração do controle de sessão do usuário. Login, logout e bloqueio de acesso para algumas funcionalidades caso não esteja logado. O módulo foi dividido da seguinte forma:
+Neste módulo foi ensinado mais conceitos sobre NodeJS. Foi aplicado o padrão MVC de arquitetura, refatorado diversos códigos de controllers e models, utilizado um script de população automática e aleatória do banco de dados, entre outros assuntos. Segue a forma como foi dividido:
 
-### Atualizando usuários
+### NodeJS Avançado
 
-- **Express session;**
-- **Criando formulário de atualização de usuário;**
-- **Ajustando validações de usuário;**
-- **Controller de atualização do usuário;**
-- **Mensagem de sucesso;**
-- **Lógica do model de update de usuário;**
-- **Testando e corrigindo bugs;**
-
-### Menu do usuário
-
-- **Estruturando submenu de usuários;**
-- **Estilos para o submenu do usuário;**
-
-### Login logout
-
-- **Logout do usuário;**
-- **Form de login de usuário;**
-- **Estilizando form de login de usuário;**
-- **Lógica de login;**
-- **Corrigindo bugs do login;**
-
-### Bloqueio e redirecionamento de rotas
-
-- **Bloqueio de rotas para usuário nao cadastrados;**
-- **Variáveis globais com express e nunjucks;**
-- **Redirecionamento de usuários cadastrados;**
-- **Avançando com bloqueio de rotas;**
-
-### Recuperação de senha
-
-- **Form de pedido de recuperação de senha;**
-- **Lógica do pedido de recuperação de senha;**
-- **Chave criptografada para pedido de recuperação de senha;**
-- **Enviando email com Nodemailer;**
-- **Corrigindo bugs do pedido de recuperação de senha;**
-- **Página de recuperação de senha;**
-- **Lógica da recuperação de senha;**
-- **Validando a recuperação de senha;**
-- **Testando a recuperação de senha;**
-- **Criando nova senha;**
-
-### Lógica avançada de exclusão
-
-- **SQL cascade;**
-- **Verificando bugs e removendo usuários;**
-
-O gif abaixo mostra o resultado deste módulo que adicionou novas funcionalidades na Launchstore.
-
-## :rocket: Resultados
-
-### Feito durante as aulas
-
-<img alt="" src="./cadastrando-usuarios/public/gif/launchstore-cadastro.gif" width="600px"/>
+- **Padrão MVC;**
+- **Criando Base Model;**
+- **Utilizando o Base Model;**
+- **Ajustes nos Controllers;**
+- **Ajustes nos Controllers - Continuação;**
+- **Seeds de Usuários com Faker;**
+- **Seeds de Produtos e Imagens;**
+- **Correção de Bugs Após Refatoração dos Models;**
+- **Serviço de Carregamento de Produtos;**
+- **Utilizando o Serviço de Carregamento de Produtos;**
+- **Ajuste na pesquisa;**
+- **Validação Back e Front end dos Produtos;**
+- **Estrutura da Listagem de Anúncios do Usuário;**
+- **Estilizando a Página de Listagem de Anúncios;**
+- **Padronizando Estilo dos Cards;**
+- **Pedido de Compra;**
+- **Animações com Lottie e Mensagens pós Pedido;**
