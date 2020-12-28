@@ -1,53 +1,42 @@
-const Product = require("../models/Product");
-const LoadProductsService = require("../service/LoadProductService");
+const Product = require('../models/Product');
+const LoadProductsService = require('../service/LoadProductService');
 
 module.exports = {
+  async index(req, res) {
+    try {
+      let { filter, category } = req.query;
 
-    async index(req, res) {
-        try {
+      if (!filter || filter.toLowerCase() == 'toda a loja') filter = null;
 
-            let params = {};
-            
-            const { filter, category } = req.query;
+      let products = await Product.search({ filter, category });
 
-            if(!filter) return res.redirect("/");
+      const productsPromise = products.map(LoadProductsService.format);
 
-            params.filter = filter;
+      products = await Promise.all(productsPromise);
 
-            if(category) {
-                params.category = category;
-            }
+      const search = {
+        term: filter || 'Toda a loja',
+        total: products.length,
+      };
 
-            let products = await Product.search(params);
+      const categories = products
+        .map((product) => ({
+          id: product.category_id,
+          name: product.category_name,
+        }))
+        .reduce((categoriesFiltered, category) => {
+          const found = categoriesFiltered.some((cat) => cat.id == category.id);
 
-            const productsPromise = products.map(LoadProductsService.format);
+          if (!found) {
+            categoriesFiltered.push(category);
+          }
 
-            products = await Promise.all(productsPromise);
+          return categoriesFiltered;
+        }, []);
 
-            const search = {
-                term: req.query.filter,
-                total: products.length
-            }
-
-            const categories = products.map(product => ({
-                id: product.category_id,
-                name: product.category_name
-            })).reduce((categoriesFiltered, category) => {
-
-                const found = categoriesFiltered.some(cat => cat.id == category.id)
-
-                if (!found) {
-                    categoriesFiltered.push(category);
-                }
-                
-                return categoriesFiltered;
-            }, []);
-
-            return res.render("search/index", { products, search, categories });
-
-        }catch(err) {
-            console.log(err);
-        }
+      return res.render('search/index', { products, search, categories });
+    } catch (err) {
+      console.log(err);
     }
-
-}
+  },
+};
