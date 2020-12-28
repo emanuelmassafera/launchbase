@@ -63,8 +63,11 @@
                         <p class="unavaliable">Indisponível</p>
                     {% elseif product.quantity == 0 %}
                         <p class="unavaliable">Fora de estoque</p>
-                    {% else %} 
-                        <button class="button">Comprar</button>
+                    {% else %}
+                        <form action="/users/orders" method="POST">
+                            <input type="hidden" name="id" value="{{product.id}}">
+                            <button class="button">Comprar</button>
+                        </form>
                     {% endif %}
                 </div>
             </div>
