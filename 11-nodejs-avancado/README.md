@@ -29,3 +29,9 @@ Neste módulo foi ensinado mais conceitos sobre NodeJS. Foi aplicado o padrão M
 - **Padronizando Estilo dos Cards;**
 - **Pedido de Compra;**
 - **Animações com Lottie e Mensagens pós Pedido;**
+
+## :rocket: Resultados
+
+### Feito durante as aulas
+
+<img alt="" src="./nodejs-avancado/public/Launchstore.gif" width="800px"/>
