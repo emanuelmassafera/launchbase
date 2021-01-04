@@ -7,7 +7,7 @@ Base.init({ table: 'members' });
 module.exports = {
   ...Base,
 
-  async create(data) {
+  create(data, callback) {
     const query = `
             INSERT INTO members (
                 name,
@@ -35,9 +35,11 @@ module.exports = {
       data.instructor,
     ];
 
-    const results = await db.query(query, values);
+    db.query(query, values, function (err, results) {
+      if (err) throw `Database Error! ${err}`;
 
-    return results.rows[0];
+      callback(results.rows[0]);
+    });
   },
 
   find(id, callback) {
@@ -56,17 +58,17 @@ module.exports = {
 
   update(data, callback) {
     const query = `
-      UPDATE members SET 
-          avatar_url=($1),
-          name=($2),
-          birth=($3),
-          gender=($4),
-          email=($5),
-          blood=($6),
-          weight=($7),
-          height=($8),
-          instructor_id=($9)
-      WHERE id=$10
+        UPDATE members SET 
+            avatar_url=($1),
+            name=($2),
+            birth=($3),
+            gender=($4),
+            email=($5),
+            blood=($6),
+            weight=($7),
+            height=($8),
+            instructor_id=($9)
+        WHERE id=$10
     `;
     const values = [
       data.avatar_url,
