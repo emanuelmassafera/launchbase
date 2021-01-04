@@ -1,91 +1,93 @@
-const { age, date } = require("../../lib/utils");
-const Instructor = require("../models/Instructor");
+const { age, date } = require('../../lib/utils');
+const Instructor = require('../models/Instructor');
 
 module.exports = {
-    index(req, res) {
-        let { filter, page, limit } = req.query;
+  index(req, res) {
+    let { filter, page, limit } = req.query;
 
-        page = page || 1;
-        limit = limit || 2;
-        let offset = limit * (page - 1);
+    page = page || 1;
+    limit = limit || 2;
+    let offset = limit * (page - 1);
 
-        const params = {
-            filter,
-            page,
-            limit,
-            offset,
-            callback(instructors) {
-                
-                const pagination = {
-                    total: Math.ceil(instructors[0].total / limit),
-                    page
-                };
-
-                return res.render("instructors/index", { instructors, pagination, filter });
-            }
+    const params = {
+      filter,
+      page,
+      limit,
+      offset,
+      callback(instructors) {
+        const pagination = {
+          total: Math.ceil(instructors[0].total / limit),
+          page,
         };
 
-        Instructor.paginate(params);
-
-    },
-
-    create(req, res) {
-        return res.render("instructors/create");
-    },
-
-    post(req, res) {
-        const keys = Object.keys(req.body);
-
-        for (key of keys) {
-            if (req.body[key] == "") {
-                return res.send("Please, fill all fields!");
-            }
-        }
-
-        Instructor.create(req.body, function (instructor) {
-            return res.redirect(`/instructors/${instructor.id}`);
+        return res.render('instructors/index', {
+          instructors,
+          pagination,
+          filter,
         });
-    },
+      },
+    };
 
-    show(req, res) {
-        Instructor.find(req.params.id, function (instructor) {
-            if (!instructor) return res.send("Instructor not found!");
+    Instructor.paginate(params);
+  },
 
-            instructor.age = age(instructor.birth);
-            instructor.services = instructor.services.split(",");
-            instructor.created_at = date(instructor.created_at).format;
+  create(req, res) {
+    return res.render('instructors/create');
+  },
 
-            return res.render("instructors/show", { instructor });
-        });
-    },
+  post(req, res) {
+    const keys = Object.keys(req.body);
 
-    edit(req, res) {
-        Instructor.find(req.params.id, function (instructor) {
-            if (!instructor) return res.send("Instructor not found!");
+    for (key of keys) {
+      if (req.body[key] == '') {
+        return res.send('Please, fill all fields!');
+      }
+    }
 
-            instructor.birth = date(instructor.birth).iso;
+    Instructor.create(req.body, function (instructor) {
+      return res.redirect(`/instructors/${instructor.id}`);
+    });
+  },
 
-            return res.render("instructors/edit", { instructor });
-        });
-    },
+  async show(req, res) {
+    const instructor = await Instructor.find(req.params.id);
 
-    put(req, res) {
-        const keys = Object.keys(req.body);
+    if (!instructor) return res.send('Instructor not found!');
 
-        for (key of keys) {
-            if (req.body[key] == "") {
-                return res.send("Please, fill all fields!");
-            }
-        }
+    instructor.age = age(instructor.birth);
+    instructor.services = instructor.services.split(',');
+    instructor.created_at = date(instructor.created_at).format;
 
-        Instructor.update(req.body, function () {
-            return res.redirect(`/instructors/${req.body.id}`);
-        });
-    },
+    return res.render('instructors/show', { instructor });
+  },
 
-    delete(req, res) {
-        Instructor.delete(req.body.id, function () {
-            return res.redirect(`/instructors`);
-        });
-    },
-}
+  edit(req, res) {
+    Instructor.find(req.params.id, function (instructor) {
+      if (!instructor) return res.send('Instructor not found!');
+
+      instructor.birth = date(instructor.birth).iso;
+
+      return res.render('instructors/edit', { instructor });
+    });
+  },
+
+  put(req, res) {
+    const keys = Object.keys(req.body);
+
+    for (key of keys) {
+      if (req.body[key] == '') {
+        return res.send('Please, fill all fields!');
+      }
+    }
+
+    Instructor.update(req.body, function () {
+      return res.redirect(`/instructors/${req.body.id}`);
+    });
+  },
+
+  async delete(req, res) {
+    await Instructor.delete(req.body.id);
+
+    return res.redirect(`/instructors`);
+  },
+};

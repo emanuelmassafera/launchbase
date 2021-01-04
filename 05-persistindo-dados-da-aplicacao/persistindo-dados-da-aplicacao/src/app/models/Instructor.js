@@ -1,21 +1,27 @@
-const db = require("../../config/db");
-const { age, date } = require("../../lib/utils");
+const db = require('../../config/db');
+const Base = require('./Base');
+const { age, date } = require('../../lib/utils');
 
+Base.init({ table: 'instructors' });
 
 module.exports = {
+  ...Base,
 
-    all(callback) {
-        db.query(`SELECT instructors.*, count(members) AS total_students 
+  all(callback) {
+    db.query(
+      `SELECT instructors.*, count(members) AS total_students 
         FROM instructors LEFT JOIN members ON (instructors.id = members.instructor_id) 
-        GROUP BY instructors.id ORDER BY total_students DESC`, function (err, results) {
-            if (err) throw `Database Error! ${err}`;
+        GROUP BY instructors.id ORDER BY total_students DESC`,
+      function (err, results) {
+        if (err) throw `Database Error! ${err}`;
 
-            callback(results.rows);
-        });
-    },
+        callback(results.rows);
+      }
+    );
+  },
 
-    create(data, callback) {
-        const query = `
+  create(data, callback) {
+    const query = `
             INSERT INTO instructors (
                 name,
                 avatar_url,
@@ -27,44 +33,39 @@ module.exports = {
             RETURNING id
         `;
 
-        const values = [
-            data.name,
-            data.avatar_url,
-            data.gender,
-            data.services,
-            date(data.birth).iso,
-            date(Date.now()).iso
-        ];
+    const values = [
+      data.name,
+      data.avatar_url,
+      data.gender,
+      data.services,
+      date(data.birth).iso,
+      date(Date.now()).iso,
+    ];
 
-        db.query(query, values, function (err, results) {
-            if (err) throw `Database Error! ${err}`;
+    db.query(query, values, function (err, results) {
+      if (err) throw `Database Error! ${err}`;
 
-            callback(results.rows[0]);
-        });
-    },
+      callback(results.rows[0]);
+    });
+  },
 
-    find(id, callback) {
-        db.query(`SELECT * FROM instructors WHERE id = $1`, [id], function (err, results) {
-            if (err) throw `Database Error! ${err}`;
-
-            callback(results.rows[0]);
-        });
-    },
-
-    findBy(filter, callback) {
-        db.query(`SELECT instructors.*, count(members) AS total_students 
+  findBy(filter, callback) {
+    db.query(
+      `SELECT instructors.*, count(members) AS total_students 
         FROM instructors LEFT JOIN members ON (instructors.id = members.instructor_id) 
         WHERE instructors.name ILIKE '%${filter}%' 
         OR instructors.services ILIKE '%${filter}%' 
-        GROUP BY instructors.id ORDER BY total_students DESC`, function (err, results) {
-            if (err) throw `Database Error! ${err}`;
+        GROUP BY instructors.id ORDER BY total_students DESC`,
+      function (err, results) {
+        if (err) throw `Database Error! ${err}`;
 
-            callback(results.rows);
-        });
-    },
+        callback(results.rows);
+      }
+    );
+  },
 
-    update(data, callback) {
-        const query = `
+  update(data, callback) {
+    const query = `
             UPDATE instructors SET 
                 avatar_url=($1),
                 name=($2),
@@ -73,62 +74,51 @@ module.exports = {
                 services=($5)
             WHERE id=$6
         `;
-        const values = [
-            data.avatar_url,
-            data.name,
-            date(data.birth).iso,
-            data.gender,
-            data.services,
-            data.id
-        ];
+    const values = [
+      data.avatar_url,
+      data.name,
+      date(data.birth).iso,
+      data.gender,
+      data.services,
+      data.id,
+    ];
 
-        db.query(query, values, function (err, results) {
-            if (err) throw `Database Error! ${err}`;
+    db.query(query, values, function (err, results) {
+      if (err) throw `Database Error! ${err}`;
 
-            callback();
-        });
-    },
+      callback();
+    });
+  },
 
-    delete(id, callback) {
-        db.query(`DELETE FROM instructors WHERE id=$1`, [id], function (err, results) {
-            if (err) throw `Database Error! ${err}`;
+  paginate(params) {
+    const { filter, limit, offset, callback } = params;
 
-            callback();
-        });
-    },
-
-    paginate(params) {
-        const { filter, limit, offset, callback } = params;
-
-        let query = "",
-            filterQuery = "",
-            totalQuery = `(
+    let query = '',
+      filterQuery = '',
+      totalQuery = `(
                 SELECT count(*) FROM instructors
             ) AS total`;
 
-
-        if (filter) {
-            filterQuery = ` WHERE instructors.name ILIKE '%${filter}%' 
+    if (filter) {
+      filterQuery = ` WHERE instructors.name ILIKE '%${filter}%' 
             OR instructors.services ILIKE '%${filter}%'`;
 
-            totalQuery = `(
+      totalQuery = `(
                 SELECT count(*) FROM instructors 
                 ${filterQuery}
-            ) AS total`; 
-        }
+            ) AS total`;
+    }
 
-        query = `SELECT instructors.*, ${totalQuery}, count(members) AS total_students 
+    query = `SELECT instructors.*, ${totalQuery}, count(members) AS total_students 
         FROM instructors 
         LEFT JOIN members ON (instructors.id = members.instructor_id)
         ${filterQuery} 
         GROUP BY instructors.id LIMIT $1 OFFSET $2`;
 
-        db.query(query, [limit, offset], function (err, results) {
-            if (err) throw `Database Error! ${err}`;
+    db.query(query, [limit, offset], function (err, results) {
+      if (err) throw `Database Error! ${err}`;
 
-            callback(results.rows);
-        });
-    }
-
-
-}
+      callback(results.rows);
+    });
+  },
+};
