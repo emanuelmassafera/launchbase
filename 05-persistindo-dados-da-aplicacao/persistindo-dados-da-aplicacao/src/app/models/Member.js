@@ -7,7 +7,7 @@ Base.init({ table: 'members' });
 module.exports = {
   ...Base,
 
-  create(data, callback) {
+  async create(data) {
     const query = `
             INSERT INTO members (
                 name,
@@ -35,11 +35,9 @@ module.exports = {
       data.instructor,
     ];
 
-    db.query(query, values, function (err, results) {
-      if (err) throw `Database Error! ${err}`;
+    const results = await db.query(query, values);
 
-      callback(results.rows[0]);
-    });
+    return results.rows[0];
   },
 
   find(id, callback) {

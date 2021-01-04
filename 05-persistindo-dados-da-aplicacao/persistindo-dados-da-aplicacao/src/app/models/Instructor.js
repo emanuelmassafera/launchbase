@@ -20,7 +20,7 @@ module.exports = {
     );
   },
 
-  create(data, callback) {
+  async create(data) {
     const query = `
             INSERT INTO instructors (
                 name,
@@ -42,11 +42,9 @@ module.exports = {
       date(Date.now()).iso,
     ];
 
-    db.query(query, values, function (err, results) {
-      if (err) throw `Database Error! ${err}`;
+    const results = await db.query(query, values);
 
-      callback(results.rows[0]);
-    });
+    return results.rows[0];
   },
 
   findBy(filter, callback) {
