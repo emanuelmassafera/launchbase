@@ -124,3 +124,18 @@
 .cart .button.order:hover {
   background: rgba(0, 220, 64, 1);
 }
+
+/* Carrinho vazio */
+
+.cart-empty {
+  text-align: center;
+}
+
+.cart-empty p {
+  font-size: 18px;
+}
+
+.cart-empty .button {
+  width: 240px;
+  margin: 16px auto;
+}

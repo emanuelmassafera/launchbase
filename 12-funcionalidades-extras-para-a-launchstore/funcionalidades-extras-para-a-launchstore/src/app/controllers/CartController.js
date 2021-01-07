@@ -35,7 +35,7 @@ module.exports = {
     return res.redirect('/cart');
   },
 
-  async removeOne(req, res) {
+  removeOne(req, res) {
     // Pegar o id do produto
     let { id } = req.params;
 
@@ -52,6 +52,20 @@ module.exports = {
     req.session.cart = cart;
 
     // Redirecionamento para a página cart
+    return res.redirect('/cart');
+  },
+
+  delete(req, res) {
+    let { id } = req.params;
+
+    let { cart } = req.session;
+
+    if (!cart) return res.redirect('/cart');
+
+    cart = Cart.init(cart).delete(id);
+
+    req.session.cart = cart;
+
     return res.redirect('/cart');
   },
 };
