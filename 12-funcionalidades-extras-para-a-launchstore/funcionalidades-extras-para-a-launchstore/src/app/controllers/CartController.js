@@ -1,4 +1,4 @@
-const { addOne } = require('../../lib/cart');
+const { addOne, removeOne } = require('../../lib/cart');
 const Cart = require('../../lib/cart');
 const LoadProductsServices = require('../service/LoadProductService');
 
@@ -32,6 +32,26 @@ module.exports = {
     // Atualizar o carrinho da sessão
     req.session.cart = cart;
 
+    return res.redirect('/cart');
+  },
+
+  async removeOne(req, res) {
+    // Pegar o id do produto
+    let { id } = req.params;
+
+    // Pegar o carrinho da sessão
+    let { cart } = req.session;
+
+    // Se não tiver carrinho, retornar
+    if (!cart) return res.redirect('/cart');
+
+    // Iniciar o carrinho e remover
+    cart = Cart.init(cart).removeOne(id);
+
+    // Atualizar o carrinho da sessão, removendo o item
+    req.session.cart = cart;
+
+    // Redirecionamento para a página cart
     return res.redirect('/cart');
   },
 };
