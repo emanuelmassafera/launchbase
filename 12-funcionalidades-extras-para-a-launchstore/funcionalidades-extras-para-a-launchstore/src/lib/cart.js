@@ -99,7 +99,7 @@ const Cart = {
   },
 
   getCartItem(productId) {
-    return this.items.find((item) => item.product.id == product.id);
+    return this.items.find((item) => item.product.id == productId);
   },
 };
 
