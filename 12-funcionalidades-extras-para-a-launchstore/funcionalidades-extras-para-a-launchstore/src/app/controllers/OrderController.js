@@ -5,6 +5,7 @@ const Order = require('../models/Order');
 
 const mailer = require('../../lib/mailer');
 const Cart = require('../../lib/cart');
+const { update } = require('../models/Order');
 
 const email = (seller, product, buyer) => `
 <h2>Olá, ${seller.name}</h2>
@@ -103,6 +104,43 @@ module.exports = {
     } catch (error) {
       console.error(error);
       return res.render('orders/error');
+    }
+  },
+
+  async update(req, res) {
+    try {
+      const { id, action } = req.params;
+
+      const acceptedActions = ['close', 'cancel'];
+
+      if (!acceptedActions.includes(action)) {
+        return res.send("Can't do this action!");
+      }
+
+      // Pegar o pedido
+      const order = await Order.findOne({ where: { id } });
+
+      if (!order) return res.send('Order not found!');
+
+      // Verificar se ele está aberto
+      if (order.status != 'open') return res.send("Can't do this action!");
+
+      // Atualizar o status do pedido
+      const status = {
+        close: 'sold',
+        cancel: 'canceled',
+      };
+
+      order.status = status[action];
+
+      await Order.update(id, {
+        status: order.status,
+      });
+
+      // Redirecionar
+      return res.redirect('/orders/sales');
+    } catch (error) {
+      console.error(error);
     }
   },
 };
