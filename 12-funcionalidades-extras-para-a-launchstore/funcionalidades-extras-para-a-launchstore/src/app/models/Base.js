@@ -1,91 +1,95 @@
-const db = require("../../config/db");
+const db = require('../../config/db');
 
 function find(filters, table) {
-    let query = `SELECT * FROM ${table}`;
+  let query = `SELECT * FROM ${table}`;
 
-    if(filters) {
-        Object.keys(filters).map(key => {
-            query += ` ${key}`;
-    
-            Object.keys(filters[key]).map(field => {
-                query += ` ${field} = '${filters[key][field]}'`;
-            });
-        });
-    }
+  if (filters) {
+    Object.keys(filters).map((key) => {
+      query += ` ${key}`;
 
-    return db.query(query);
+      Object.keys(filters[key]).map((field) => {
+        query += ` ${field} = '${filters[key][field]}'`;
+      });
+    });
+  }
+
+  return db.query(query);
 }
 
 const Base = {
-    init({ table }) {
-        if(!table) throw new Error('Invalid Params');
+  init({ table }) {
+    if (!table) throw new Error('Invalid Params');
 
-        this.table = table;
+    this.table = table;
 
-        return this;
-    },
+    return this;
+  },
 
-    async find(id) {
-        const results = await find({ where: {id}}, this.table);
-        return results.rows[0];
-    },
+  async find(id) {
+    const results = await find({ where: { id } }, this.table);
+    return results.rows[0];
+  },
 
-    async findOne(filters) {
-        const results = await find(filters, this.table);
-        return results.rows[0];
-    },
+  async findOne(filters) {
+    const results = await find(filters, this.table);
+    return results.rows[0];
+  },
 
-    async findAll(filters) {
-        const results = await find(filters, this.table);
-        return results.rows;
-    },
+  async findAll(filters) {
+    const results = await find(filters, this.table);
+    return results.rows;
+  },
 
-    async create(fields) {
-        try {
-            let keys = [];
-            let values = [];
+  async findOneWithDeleted(filters) {
+    const results = await find(filters, `${this.table}_with_deleted`);
 
-            Object.keys(fields).map(key => {
-                keys.push(key);
-                values.push(`'${fields[key]}'`);
-            });
+    return results.rows[0];
+  },
 
-            const query = `INSERT INTO ${this.table} (${keys.join(",")}) VALUES (${values.join(",")}) RETURNING id`;
+  async create(fields) {
+    try {
+      let keys = [];
+      let values = [];
 
-            const results = await db.query(query);
+      Object.keys(fields).map((key) => {
+        keys.push(key);
+        values.push(`'${fields[key]}'`);
+      });
 
-            return results.rows[0].id;
+      const query = `INSERT INTO ${this.table} (${keys.join(
+        ','
+      )}) VALUES (${values.join(',')}) RETURNING id`;
 
-        } catch (error) {
-            console.error(error);
-        }
-    },
+      const results = await db.query(query);
 
-    update(id, fields) {
+      return results.rows[0].id;
+    } catch (error) {
+      console.error(error);
+    }
+  },
 
-        try {
-            let update = [];
+  update(id, fields) {
+    try {
+      let update = [];
 
-            Object.keys(fields).map(key => {
+      Object.keys(fields).map((key) => {
+        const line = `${key} = '${fields[key]}'`;
+        update.push(line);
+      });
 
-                const line = `${key} = '${fields[key]}'`;
-                update.push(line);
+      let query = `UPDATE ${this.table} SET ${update.join(
+        ','
+      )} WHERE id = ${id}`;
 
-            });
-    
-            let query = `UPDATE ${this.table} SET ${update.join(",")} WHERE id = ${id}`;
-            
-            return db.query(query);
-            
-        } catch (error) {
-            console.error(error);
-        }
-    },
+      return db.query(query);
+    } catch (error) {
+      console.error(error);
+    }
+  },
 
-    delete(id) {
-        return db.query(`DELETE FROM ${this.table} WHERE id = ${id}`);
-    },
-
-}
+  delete(id) {
+    return db.query(`DELETE FROM ${this.table} WHERE id = ${id}`);
+  },
+};
 
 module.exports = Base;
